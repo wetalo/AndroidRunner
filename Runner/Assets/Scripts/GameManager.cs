@@ -76,7 +76,12 @@ public class GameManager : MonoBehaviour {
         HighScore newScore = new HighScore(score);
         highScores.Add(newScore);
         SortHighScores();
-        highScores = highScores.GetRange(0,maxNumHighScores);
+        int currentMax = maxNumHighScores;
+        if(maxNumHighScores > highScores.Count)
+        {
+            currentMax = highScores.Count;
+        }
+        highScores = highScores.GetRange(0, currentMax);
         SaveHighScores();
         DisplayHighScoresOnUI();
     }
