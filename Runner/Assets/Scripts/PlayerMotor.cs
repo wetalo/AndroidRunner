@@ -131,7 +131,8 @@ public class PlayerMotor : MonoBehaviour {
         GetTarget();
         playerState = PlayerStates.switchingLane;
         moveVector.x = movementDirection * laneSwitchingSpeed;
-        GetComponent<AudioSource>().Play();
+        if(!gameManager.isMuted)
+            GetComponent<AudioSource>().Play();
     }
 
     void SwitchLane()

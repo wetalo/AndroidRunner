@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     public bool isPaused;
+    public bool isMuted = true;
 
     public GameObject pauseMenu;
     public List<HighScore> highScores;
@@ -42,6 +43,11 @@ public class GameManager : MonoBehaviour {
             Time.timeScale = 1f;
             pauseMenu.SetActive(false);
         }
+    }
+
+    public void MuteButton()
+    {
+        isMuted = !isMuted;
     }
 
     public void Restart()
